@@ -1,0 +1,14 @@
+D:\C#\MayTinhBoTui\bin\Debug\net8.0-windows\MayTinhBoTui.exe
+D:\C#\MayTinhBoTui\bin\Debug\net8.0-windows\MayTinhBoTui.deps.json
+D:\C#\MayTinhBoTui\bin\Debug\net8.0-windows\MayTinhBoTui.runtimeconfig.json
+D:\C#\MayTinhBoTui\bin\Debug\net8.0-windows\MayTinhBoTui.dll
+D:\C#\MayTinhBoTui\bin\Debug\net8.0-windows\MayTinhBoTui.pdb
+D:\C#\MayTinhBoTui\obj\Debug\net8.0-windows\MayTinhBoTui.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\MayTinhBoTui\obj\Debug\net8.0-windows\MayTinhBoTui.AssemblyInfoInputs.cache
+D:\C#\MayTinhBoTui\obj\Debug\net8.0-windows\MayTinhBoTui.AssemblyInfo.cs
+D:\C#\MayTinhBoTui\obj\Debug\net8.0-windows\MayTinhBoTui.csproj.CoreCompileInputs.cache
+D:\C#\MayTinhBoTui\obj\Debug\net8.0-windows\MayTinhBoTui.dll
+D:\C#\MayTinhBoTui\obj\Debug\net8.0-windows\refint\MayTinhBoTui.dll
+D:\C#\MayTinhBoTui\obj\Debug\net8.0-windows\MayTinhBoTui.pdb
+D:\C#\MayTinhBoTui\obj\Debug\net8.0-windows\MayTinhBoTui.genruntimeconfig.cache
+D:\C#\MayTinhBoTui\obj\Debug\net8.0-windows\ref\MayTinhBoTui.dll
