@@ -1,0 +1,5 @@
+ds = list(map(int,input("Nhap vao 2 so nguyen duong: ").split()))
+if ds[0] <= 0 or ds[1] <= 0:print("Co so khong phai so nguyen duong!")
+elif(ds[0]%2==0 and ds[1]%2==0):print("ca 2 so la so chan")
+elif(ds[0]%2!=0 and ds[1]%2!=0):print("ca 2 la so le")
+elif((ds[0]%2==0 and ds[1]%2!=0)or(ds[0]%2!=0 and ds[1]%2==0)):print("chi co 1 so chan")
