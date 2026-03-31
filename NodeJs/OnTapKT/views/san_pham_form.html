@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San pham</title>
+</head>
+<body>
+    <h1>{{title}}</h1>
+    <form method="POST" style="line-height: 2;">
+        Tên sản phẩm: <br>
+        <input type="text" name="ten" value="{{ten}}" required style="width: 300px;"><br>
+        
+        Loại sản phẩm: <br>
+        <select name="loai_san_pham_id" required>
+            <option value="">-- Chọn loại --</option>
+            {{options}}
+        </select><br>
+        
+        Đơn giá: <br>
+        <input type="number" name="don_gia" value="{{don_gia}}" required><br>
+        
+        Mô tả: <br>
+        <textarea name="mo_ta" rows="4" style="width: 300px;">{{mo_ta}}</textarea><br>
+        
+        <button type="submit" style="margin-top: 10px;">Lưu sản phẩm</button>
+    </form>
+    <br><a href="/san-pham">Quay lại danh sách</a>
+</body>
+</html>
