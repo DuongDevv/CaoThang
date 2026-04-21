@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cập nhật thông tin sinh viên</title>
+</head>
+<body>
+     <h1>Cập nhật thông tin sinh viên</h1>
+    <form method="POST" action="/update">
+        <input type="hidden" name="id" value="[ID]">
+        MSSV: <input type="text" name="mssv" value="[MSSV]" disabled><br><br>
+        Họ tên: <input type="text" name="ho_ten" value="[HO_TEN]"><br><br>
+        Tổng kết: <input type="number" step="0.1" name="tong_ket" value="[TONG_KET]"><br><br>
+        <button type="submit">Cập nhật</button>
+    </form>
+</body>
+</html>
