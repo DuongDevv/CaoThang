@@ -1,0 +1,151 @@
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace QuanLyThuVien
+{
+    public partial class frmNhapSach : Form
+    {
+        // 1. Connection String - Đổi tên Server (Data Source) cho đúng máy bạn
+        string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=LibraryDB;Integrated Security=True";
+        
+        public frmNhapSach()
+        {
+            InitializeComponent();
+        }
+
+        private void frmNhapSach_Load(object sender, EventArgs e)
+        {
+            LoadData(); // Vừa mở Form là đổ dữ liệu vào bảng ngay
+        }
+
+        // --- HÀM BỔ TRỢ (HELPERS) ---
+
+        // Load dữ liệu từ SQL lên DataGridView
+        private void LoadData()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT * FROM Books"; 
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgvSach.DataSource = dt; // dgvSach là tên DataGridView của bạn
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi kết nối: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Làm sạch các ô nhập liệu (Reset fields)
+        private void ClearInputs()
+        {
+            txtMaSach.Clear();
+            txtTenSach.Clear();
+            txtNamXB.Clear();
+            txtGia.Clear();
+            cboTheLoai.SelectedIndex = -1;
+            nudSoLuong.Value = 0;
+            dtpNgayNhap.Value = DateTime.Now;
+            txtMaSach.Focus();
+        }
+
+        // --- CÁC NÚT CHỨC NĂNG (EVENTS) ---
+
+        // Nút THÊM
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string sql = "INSERT INTO Books (MaSach, TenSach, NamXB, Gia, TheLoai, SoLuong, NgayNhap) " +
+                             "VALUES (@ma, @ten, @nam, @gia, @loai, @sl, @ngay)";
+                
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ma", txtMaSach.Text);
+                cmd.Parameters.AddWithValue("@ten", txtTenSach.Text);
+                cmd.Parameters.AddWithValue("@nam", txtNamXB.Text);
+                cmd.Parameters.AddWithValue("@gia", txtGia.Text);
+                cmd.Parameters.AddWithValue("@loai", cboTheLoai.Text);
+                cmd.Parameters.AddWithValue("@sl", nudSoLuong.Value);
+                cmd.Parameters.AddWithValue("@ngay", dtpNgayNhap.Value);
+
+                conn.Open();
+                int check = cmd.ExecuteNonQuery();
+                if (check > 0)
+                {
+                    MessageBox.Show("Thêm sách thành công!", "Thông báo");
+                    LoadData();
+                    ClearInputs();
+                }
+                conn.Close();
+            }
+        }
+
+        // Nút CẬP NHẬT (Sửa)
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string sql = "UPDATE Books SET TenSach=@ten, NamXB=@nam, Gia=@gia, TheLoai=@loai, " +
+                             "SoLuong=@sl, NgayNhap=@ngay WHERE MaSach=@ma";
+                
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ma", txtMaSach.Text);
+                cmd.Parameters.AddWithValue("@ten", txtTenSach.Text);
+                cmd.Parameters.AddWithValue("@nam", txtNamXB.Text);
+                cmd.Parameters.AddWithValue("@gia", txtGia.Text);
+                cmd.Parameters.AddWithValue("@loai", cboTheLoai.Text);
+                cmd.Parameters.AddWithValue("@sl", nudSoLuong.Value);
+                cmd.Parameters.AddWithValue("@ngay", dtpNgayNhap.Value);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Đã cập nhật thông tin!");
+                LoadData();
+                conn.Close();
+            }
+        }
+
+        // Nút XÓA
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xóa cuốn sách này?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string sql = "DELETE FROM Books WHERE MaSach=@ma";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ma", txtMaSach.Text);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    LoadData();
+                    ClearInputs();
+                    conn.Close();
+                }
+            }
+        }
+
+        // Sự kiện Click vào dòng trên DataGridView để hiện ngược lên Textbox
+        private void dgvSach_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvSach.Rows[e.RowIndex];
+                txtMaSach.Text = row.Cells["MaSach"].Value.ToString();
+                txtTenSach.Text = row.Cells["TenSach"].Value.ToString();
+                txtNamXB.Text = row.Cells["NamXB"].Value.ToString();
+                txtGia.Text = row.Cells["Gia"].Value.ToString();
+                cboTheLoai.Text = row.Cells["TheLoai"].Value.ToString();
+                nudSoLuong.Value = Convert.ToDecimal(row.Cells["SoLuong"].Value);
+                dtpNgayNhap.Value = Convert.ToDateTime(row.Cells["NgayNhap"].Value);
+            }
+        }
+    }
+}
