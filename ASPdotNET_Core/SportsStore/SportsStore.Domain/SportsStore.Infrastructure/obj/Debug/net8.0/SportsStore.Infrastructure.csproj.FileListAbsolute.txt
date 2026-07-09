@@ -1,0 +1,15 @@
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\bin\Debug\net8.0\SportsStore.Infrastructure.deps.json
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\bin\Debug\net8.0\SportsStore.Infrastructure.dll
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\bin\Debug\net8.0\SportsStore.Infrastructure.pdb
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\bin\Debug\net8.0\SportsStore.Domain.dll
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\bin\Debug\net8.0\SportsStore.Domain.pdb
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\obj\Debug\net8.0\SportsStore.Infrastructure.csproj.AssemblyReference.cache
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\obj\Debug\net8.0\SportsStore.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\obj\Debug\net8.0\SportsStore.Infrastructure.AssemblyInfoInputs.cache
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\obj\Debug\net8.0\SportsStore.Infrastructure.AssemblyInfo.cs
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\obj\Debug\net8.0\SportsStore.Infrastructure.csproj.CoreCompileInputs.cache
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\obj\Debug\net8.0\SportsSt.23F7FD65.Up2Date
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\obj\Debug\net8.0\SportsStore.Infrastructure.dll
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\obj\Debug\net8.0\refint\SportsStore.Infrastructure.dll
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\obj\Debug\net8.0\SportsStore.Infrastructure.pdb
+D:\duongdeptrai\LAB\dotNET\SportsStore\SportsStore.Infrastructure\obj\Debug\net8.0\ref\SportsStore.Infrastructure.dll
