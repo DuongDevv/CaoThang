@@ -1,23 +1,22 @@
 import React from 'react';
 import ProductInfo from './ProductInfo';
 
-function ProductCard({ name, brand, price, category, stock, discount, image }) {
+function ProductCard({ name, brand, price, category, stock, discount }) {
   return (
-    <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '20px', margin: '15px auto', maxWidth: '400px', textAlign: 'center' }}>
-      <img src={image} alt={name} style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
-      <h3 style={{ margin: '10px 0' }}>{name}</h3>
-      
-      <ProductInfo 
+    <div style={{ backgroundColor: '#fff', border: '1px solid #eef2f5', borderRadius: '12px', padding: '20px', width: '320px', height: '380px', boxShadow: '0 4px 6px rgba(0,0,0,0.02)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', margin: '0 auto' }}>
+        <h3 style={{ margin: '10px 0 5px 0', fontSize: '1.2rem', color: '#2d3748',whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            {name}
+        </h3>
+        <ProductInfo 
         brand={brand}
         category={category}
         price={price}
         discount={discount}
         stock={stock}
-      />
-      
-      <button style={{ marginTop: '10px', padding: '5px 15px', cursor: 'pointer' }}>
-        Chi tiết
-      </button>
+        />
+        <button style={{ marginTop: '10px', padding: '10px', width: '100%', backgroundColor: '#e2e8f0', color: '#333', border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer'}}>
+            Chi tiết
+        </button>
     </div>
   );
 }
