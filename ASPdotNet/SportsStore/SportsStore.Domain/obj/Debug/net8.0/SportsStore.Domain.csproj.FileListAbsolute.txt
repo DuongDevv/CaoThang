@@ -1,0 +1,12 @@
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.AssemblyInfoInputs.cache
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.AssemblyInfo.cs
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.csproj.CoreCompileInputs.cache
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.sourcelink.json
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\bin\Debug\net8.0\SportsStore.Domain.deps.json
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\bin\Debug\net8.0\SportsStore.Domain.dll
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\bin\Debug\net8.0\SportsStore.Domain.pdb
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.dll
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\obj\Debug\net8.0\refint\SportsStore.Domain.dll
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\obj\Debug\net8.0\SportsStore.Domain.pdb
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.Domain\obj\Debug\net8.0\ref\SportsStore.Domain.dll

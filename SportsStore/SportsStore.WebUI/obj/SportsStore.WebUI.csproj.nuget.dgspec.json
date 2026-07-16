@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.WebUI\\SportsStore.WebUI.csproj": {}
+    "D:\\CaoThang\\SportsStore\\SportsStore.WebUI\\SportsStore.WebUI.csproj": {}
   },
   "projects": {
-    "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj": {
+    "D:\\CaoThang\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj",
+        "projectUniqueName": "D:\\CaoThang\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj",
         "projectName": "SportsStore.Domain",
-        "projectPath": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj",
+        "projectPath": "D:\\CaoThang\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj",
         "packagesPath": "C:\\Users\\SV\\.nuget\\packages\\",
-        "outputPath": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Domain\\obj\\",
+        "outputPath": "D:\\CaoThang\\SportsStore\\SportsStore.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -65,18 +65,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj": {
+    "D:\\CaoThang\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj",
+        "projectUniqueName": "D:\\CaoThang\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj",
         "projectName": "SportsStore.Infrastructure",
-        "projectPath": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj",
+        "projectPath": "D:\\CaoThang\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\SV\\.nuget\\packages\\",
-        "outputPath": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Infrastructure\\obj\\",
+        "outputPath": "D:\\CaoThang\\SportsStore\\SportsStore.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,8 +97,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj": {
-                "projectPath": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj"
+              "D:\\CaoThang\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj": {
+                "projectPath": "D:\\CaoThang\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj"
               }
             }
           }
@@ -113,7 +113,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -134,18 +134,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.WebUI\\SportsStore.WebUI.csproj": {
+    "D:\\CaoThang\\SportsStore\\SportsStore.WebUI\\SportsStore.WebUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.WebUI\\SportsStore.WebUI.csproj",
+        "projectUniqueName": "D:\\CaoThang\\SportsStore\\SportsStore.WebUI\\SportsStore.WebUI.csproj",
         "projectName": "SportsStore.WebUI",
-        "projectPath": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.WebUI\\SportsStore.WebUI.csproj",
+        "projectPath": "D:\\CaoThang\\SportsStore\\SportsStore.WebUI\\SportsStore.WebUI.csproj",
         "packagesPath": "C:\\Users\\SV\\.nuget\\packages\\",
-        "outputPath": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.WebUI\\obj\\",
+        "outputPath": "D:\\CaoThang\\SportsStore\\SportsStore.WebUI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -166,11 +166,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj": {
-                "projectPath": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj"
+              "D:\\CaoThang\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj": {
+                "projectPath": "D:\\CaoThang\\SportsStore\\SportsStore.Domain\\SportsStore.Domain.csproj"
               },
-              "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj": {
-                "projectPath": "D:\\duongdeptrai\\LAB\\ASPdotNET_Core\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj"
+              "D:\\CaoThang\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj": {
+                "projectPath": "D:\\CaoThang\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj"
               }
             }
           }
@@ -185,7 +185,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -209,7 +209,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
