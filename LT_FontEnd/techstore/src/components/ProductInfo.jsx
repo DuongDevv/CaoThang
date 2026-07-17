@@ -1,28 +1,39 @@
 import React from 'react';
 
-function ProductInfo({ price, discount, stock }) {
-  // Tính giá sau khi giảm
+function ProductInfo({ price, discount, stock, brand, category }) {
   const finalPrice = price * (1 - discount / 100);
 
   return (
-    <div style={{ fontSize: '0.9rem', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-      {/* Khu vực giá cả */}
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-        <span style={{ fontWeight: 'bold', color: '#ff4757', fontSize: '1.2rem' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left', width: '100%' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: '#8b949e' }}>
+        <span>Hãng: <b>{brand}</b></span>
+        <span>Loại: <b>{category}</b></span>
+      </div>
+
+      {/* Hiển thị giá tiền thông minh */}
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', margin: '5px 0' }}>
+        <span style={{ color: '#ff4500', fontWeight: 'bold', fontSize: '1.25rem' }}>
           {finalPrice.toLocaleString()}đ
         </span>
         {discount > 0 && (
-          <span style={{ textDecoration: 'line-through', color: '#a0aec0', fontSize: '0.85rem' }}>
+          <span style={{ textDecoration: 'line-through', color: '#8b949e', fontSize: '0.85rem' }}>
             {price.toLocaleString()}đ
           </span>
         )}
       </div>
 
-      {/* Kho hàng và trạng thái */}
-      <div style={{ display: 'flex', justifyContent: 'between', alignItems: 'center', marginTop: '5px', borderTop: '1px dashed #e2e8f0', paddingTop: '8px' }}>
-        <span style={{ color: '#718096', fontSize: '0.8rem' }}>Kho: <strong>{stock}</strong></span>
-        <span style={{ fontSize: '0.8rem', padding: '2px 6px', borderRadius: '4px', backgroundColor: stock > 10 ? '#c6f6d5' : '#feebc8', color: stock > 10 ? '#22543d' : '#744210' }}>
-          {stock > 10 ? 'Còn hàng' : 'Sắp hết'}
+      {/* Trạng thái kho hàng bằng thẻ màu */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px dashed #30363d', paddingTop: '8px', fontSize: '0.85rem' }}>
+        <span style={{ color: '#c9d1d9' }}>Còn lại: <b>{stock}</b> sp</span>
+        <span style={{ 
+          padding: '2px 8px', 
+          borderRadius: '4px', 
+          fontSize: '0.75rem', 
+          fontWeight: 'bold',
+          backgroundColor: stock > 5 ? 'rgba(56, 142, 60, 0.2)' : 'rgba(230, 81, 0, 0.2)', 
+          color: stock > 5 ? '#4caf50' : '#ff9800' 
+        }}>
+          {stock > 5 ? 'Còn hàng' : 'Sắp hết hàng'}
         </span>
       </div>
     </div>

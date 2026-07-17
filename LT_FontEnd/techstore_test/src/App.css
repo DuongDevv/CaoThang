@@ -1,0 +1,65 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-color: #030712;       /* Nền đen sâu tối giản */
+  --border-color: #1e293b;  /* Viền xám tối siêu mảnh */
+  --primary-color: #3b82f6; /* Xanh dương công nghệ làm điểm nhấn */
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: #f3f4f6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hiệu ứng chữ Gradient cho Logo */
+.logo-text {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* Thanh tìm kiếm bo tròn tinh tế */
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 20px;
+  border-radius: 99px;
+  border: 1px solid var(--border-color);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+  outline: none;
+}
+
+/* Card sản phẩm cao cấp */
+.product-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hiệu ứng khi di chuột vào ô sản phẩm: bay nhẹ lên và ảnh phóng to */
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: #3b82f6 !important;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1) !important;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.08);
+}
+
+.product-img {
+  transition: transform 0.3s ease;
+}
