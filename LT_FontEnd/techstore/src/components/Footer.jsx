@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Footer() {
   return (
     <footer style={{ textAlign: 'center', padding: '20px', borderTop: '1px solid #eee', marginTop: '30px', color: '#666' }}>

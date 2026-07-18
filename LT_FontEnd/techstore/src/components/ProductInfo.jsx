@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 function ProductInfo({ price, discount, stock, brand, category }) {
   const finalPrice = price * (1 - discount / 100);
@@ -10,7 +10,6 @@ function ProductInfo({ price, discount, stock, brand, category }) {
         <span>Loại: <b>{category}</b></span>
       </div>
 
-      {/* Hiển thị giá tiền thông minh */}
       <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', margin: '5px 0' }}>
         <span style={{ color: '#ff4500', fontWeight: 'bold', fontSize: '1.25rem' }}>
           {finalPrice.toLocaleString()}đ
@@ -22,7 +21,6 @@ function ProductInfo({ price, discount, stock, brand, category }) {
         )}
       </div>
 
-      {/* Trạng thái kho hàng bằng thẻ màu */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px dashed #30363d', paddingTop: '8px', fontSize: '0.85rem' }}>
         <span style={{ color: '#c9d1d9' }}>Còn lại: <b>{stock}</b> sp</span>
         <span style={{ 
@@ -39,5 +37,13 @@ function ProductInfo({ price, discount, stock, brand, category }) {
     </div>
   );
 }
+
+ProductInfo.propTypes = {
+  price: PropTypes.number.isRequired,
+  discount: PropTypes.number.isRequired,
+  stock: PropTypes.number.isRequired,
+  brand: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+};
 
 export default ProductInfo;
