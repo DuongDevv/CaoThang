@@ -1,5 +1,4 @@
 // src/components/TechBanner.jsx
-import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 

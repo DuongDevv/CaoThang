@@ -1,0 +1,147 @@
+/* src/components/Header/Header.css */
+
+.app-header {
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px 40px;
+  box-sizing: border-box;
+  background: rgba(3, 7, 18, 0.8);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-link {
+  text-decoration: none; /* Bỏ gạch chân của thẻ link */
+}
+
+.logo-title {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.theme-toggle-button {
+  padding: 4px 10px;
+  background: none;
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 99px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Khu vực icon điều hướng */
+.header-nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-icon-link {
+  color: #94a3b8; /* Màu xám nhạt */
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  transition: color 0.2s ease;
+  cursor: pointer; /* Thêm con trỏ chuột */
+}
+
+.nav-icon-link:hover {
+  color: #f3f4f6; /* Chuyển sang màu trắng khi hover */
+}
+
+.nav-icon {
+  font-size: 1.4rem;
+}
+
+/* Badge đếm số lượng sản phẩm trong giỏ hàng */
+.cart-count-badge {
+  position: absolute;
+  top: -6px;
+  right: -9px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border: 2px solid var(--bg-color); /* Tạo viền xung quanh badge */
+}
+
+/* Cart Popover */
+.cart-popover {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 320px;
+  background-color: #0f172a;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  z-index: 200;
+  color: #f3f4f6;
+}
+
+.cart-popover-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.cart-popover-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cart-popover-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.cart-popover-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.view-cart-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 16px;
+}

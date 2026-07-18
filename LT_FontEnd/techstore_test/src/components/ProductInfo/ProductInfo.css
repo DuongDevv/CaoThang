@@ -1,0 +1,65 @@
+/* src/components/ProductInfo.css */
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Tăng nhẹ khoảng cách */
+  text-align: left;
+  width: 100%;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 2px 0;
+}
+
+.final-price {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.stock-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 8px;
+  font-size: 0.75rem;
+}
+
+.stock-label {
+  color: #94a3b8;
+}
+
+.stock-status {
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: bold;
+}
+
+.in-stock {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--primary-color);
+}
+
+.low-stock {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
