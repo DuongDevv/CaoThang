@@ -1,0 +1,21 @@
+//để hiển thị các nút danh mục.
+
+@model IEnumerable<string>
+
+<div class="d-grid gap-2">
+    <!-- Nút quay về trang chủ hiển thị toàn bộ sản phẩm -->
+    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">
+        Home
+    </a>
+
+    <!-- Duyệt qua từng danh mục có trong dữ liệu và tạo nút tương ứng -->
+    @foreach (string category in Model)
+    {
+        <a asp-controller="Home" 
+           asp-action="Index" 
+           asp-route-category="@category" 
+           class="btn btn-outline-secondary">
+            @category
+        </a>
+    }
+</div>

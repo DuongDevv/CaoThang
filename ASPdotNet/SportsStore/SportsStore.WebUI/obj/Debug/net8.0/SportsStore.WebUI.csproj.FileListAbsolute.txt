@@ -37,3 +37,4 @@ D:\CaoThang\ASPdotNet\SportsStore\SportsStore.WebUI\obj\Debug\net8.0\refint\Spor
 D:\CaoThang\ASPdotNet\SportsStore\SportsStore.WebUI\obj\Debug\net8.0\SportsStore.WebUI.pdb
 D:\CaoThang\ASPdotNet\SportsStore\SportsStore.WebUI\obj\Debug\net8.0\SportsStore.WebUI.genruntimeconfig.cache
 D:\CaoThang\ASPdotNet\SportsStore\SportsStore.WebUI\obj\Debug\net8.0\ref\SportsStore.WebUI.dll
+D:\CaoThang\ASPdotNet\SportsStore\SportsStore.WebUI\obj\Debug\net8.0\swae.build.ex.cache

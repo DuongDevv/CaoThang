@@ -1,11 +1,12 @@
-﻿@using SportsStore.Domain
-@model IQueryable<Product>
+﻿@using SportsStore.WebUI.Models
+@model ProductsListViewModel
 @{
     ViewData["Title"] = "Products";
 }
 
 <div class="row">
-    @foreach (var p in Model)
+    <!-- Thay đổi vòng lặp để duyệt qua Model.Products thay vì Model cũ -->
+    @foreach (var p in Model.Products)
     {
         <div class="col-md-4 col-sm-6 mb-4">
             <div class="card h-100 shadow-sm">
@@ -27,4 +28,13 @@
             </div>
         </div>
     }
+</div>
+
+<!-- ĐÂY LÀ THẺ DIV GỌI TAG HELPER TỰ ĐỘNG IN RA CÁC NÚT PHÂN TRANG -->
+<!-- ĐÂY LÀ THẺ DIV GỌI TAG HELPER CÓ HỖ TRỢ GIỮ BỘ LỌC DANH MỤC KHI CHUYỂN TRANG -->
+<div page-model="@Model.PagingInfo" 
+     page-action="Index" 
+     asp-route-category="@Context.Request.Query["category"]"
+     class="btn-group float-end mt-3">
+</div>
 </div>
