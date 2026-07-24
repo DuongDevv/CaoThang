@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -18,7 +19,7 @@ class ProductController extends Controller
         $viewData = [];
         $viewData["title"] = "Products - Online Store";
         $viewData["subtitle"] = "Danh sách sản phẩm.";
-        $viewData["products"] = ProductController::$products;
+        $viewData["products"] = Product::all();
 
         return view('product.index')->with("viewData", $viewData);
     }
