@@ -1,0 +1,63 @@
+@model SportsStore.WebUI.Models.Cart
+
+@{
+    ViewData["Title"] = "Giỏ hàng của bạn";
+}
+
+<h2 class="mb-4">Giỏ hàng của bạn</h2>
+
+<table class="table table-bordered table-striped align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th class="text-center">Số lượng</th>
+            <th>Sản phẩm</th>
+            <th class="text-end">Đơn giá</th>
+            <th class="text-end">Thành tiền</th>
+            <th class="text-center">Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Lines.Count == 0)
+        {
+            <tr>
+                <td colspan="5" class="text-center text-muted p-4">
+                    Giỏ hàng của bạn hiện đang trống!
+                </td>
+            </tr>
+        }
+        @foreach (var line in Model.Lines)
+        {
+            <tr>
+                <td class="text-center fw-bold">@line.Quantity</td>
+                <td>@line.Product.Name</td>
+                <td class="text-end">@line.Product.Price.ToString("c")</td>
+                <td class="text-end">@((line.Quantity * line.Product.Price).ToString("c"))</td>
+                <td class="text-center">
+                    <form asp-controller="Cart" asp-action="RemoveFromCart" method="post">
+                        <input type="hidden" name="productId" value="@line.Product.ProductID" />
+                        <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+                        <button type="submit" class="btn btn-sm btn-danger">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-end fw-bold fs-5">Tổng cộng:</td>
+            <td class="text-end fw-bold text-danger fs-5">
+                @Model.ComputeTotalValue().ToString("c")
+            </td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="text-center mt-4">
+    <a class="btn btn-secondary me-2" href="@(ViewBag.ReturnUrl ?? "/")">
+        <i class="bi bi-arrow-left"></i> Tiếp tục mua sắm
+    </a>
+    <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">
+        Thanh toán ngay <i class="bi bi-credit-card"></i>
+    </a>
+</div>

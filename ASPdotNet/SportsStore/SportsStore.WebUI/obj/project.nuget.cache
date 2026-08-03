@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HSUJ90Njvws=",
+  "dgSpecHash": "jmDcigCgF+E=",
   "success": true,
-  "projectFilePath": "D:\\CaoThang\\ASPdotNet\\SportsStore\\SportsStore.WebUI\\SportsStore.WebUI.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/SportsStore.WebUI.csproj",
+  "expectedPackageFiles": [
+    "/home/duong/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.10/microsoft.aspnetcore.app.ref.10.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

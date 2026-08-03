@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "55jejicHmGo=",
+  "dgSpecHash": "lwKzLa17yps=",
   "success": true,
-  "projectFilePath": "D:\\CaoThang\\ASPdotNet\\SportsStore\\SportsStore.Infrastructure\\SportsStore.Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.Infrastructure/SportsStore.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "/home/duong/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.29/microsoft.aspnetcore.app.ref.8.0.29.nupkg.sha512"
+  ],
   "logs": []
 }

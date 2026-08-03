@@ -11,7 +11,22 @@ builder.Services.AddControllersWithViews();
 // AddScoped: Một instance mới sẽ được tạo cho mỗi HTTP request.
 builder.Services.AddScoped<IProductRepository, FakeProductRepository>();
 
+// Đăng ký bộ nhớ đệm RAM để cất dữ liệu Session
+builder.Services.AddDistributedMemoryCache();
+
+// Đăng ký dịch vụ Session với các cấu hình về thời gian và bảo mật
+builder.Services.AddSession(options =>
+{
+    // Giỏ hàng sẽ tự xóa nếu người dùng không thao tác gì trong 30 phút
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
+
+//Kích hoạt tính năng Session cho toàn bộ ứng dụng
+app.UseSession();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

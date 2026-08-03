@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --bg-color: #030712;       /* Nền đen sâu tối giản */
+  --bg-color: white;       /* Nền đen sâu tối giản */
   --border-color: #1e293b;  /* Viền xám tối siêu mảnh */
   --primary-color: #3b82f6; /* Xanh dương công nghệ làm điểm nhấn */
 }
@@ -43,6 +43,7 @@ body {
   border-color: var(--primary-color);
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
   outline: none;
+  color: #fff;
 }
 
 /* Card sản phẩm cao cấp */
@@ -80,10 +81,11 @@ body {
   margin: 0 auto;
   padding: 30px 20px;
   box-sizing: border-box;
+  color: #090a0a;
 }
 
 .search-results-text {
-  color: #94a3b8;
+  color: #090a0a;
   font-size: 0.9rem;
   margin-bottom: 20px;
 }
@@ -94,7 +96,7 @@ body {
 }
 
 .no-results-found {
-  color: #64748b;
+  color: #16181a;
   text-align: center;
   padding: 80px 0;
   font-size: 1rem;
