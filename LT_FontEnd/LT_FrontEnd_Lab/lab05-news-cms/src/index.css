@@ -1,0 +1,73 @@
+:root {
+  --bg: #ffffff;
+  --text: #212529;
+  --text-muted: #6c757d;
+  --border: #e9ecef;
+  --card-bg: #f8f9fa;
+  
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color-scheme: light;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #212529;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #e9ecef;
+  text-align: left;
+}
+
+th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+
+tr:hover {
+  background-color: #f1f3f5;
+}
+
+input, select, button {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+input[type="text"], input[type="email"], select {
+  background-color: #ffffff;
+  color: #212529;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  outline: none;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, select:focus {
+  border-color: #4dabf7;
+  box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.25);
+}
