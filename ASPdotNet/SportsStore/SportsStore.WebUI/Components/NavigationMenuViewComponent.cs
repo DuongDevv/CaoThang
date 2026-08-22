@@ -1,5 +1,3 @@
-//lấy danh sách danh mục duy nhất
-
 using Microsoft.AspNetCore.Mvc;
 using SportsStore.Domain;
 
@@ -14,14 +12,14 @@ public class NavigationMenuViewComponent : ViewComponent
         _repository = repo;
     }
 
-    // Phương thức chính tự động chạy khi component được gọi
-    public IViewComponentResult Invoke(){
+    public IViewComponentResult Invoke()
+    {
+        ViewBag.SelectedCategory = RouteData?.Values["category"];
         var categories = _repository.Products
-            .Select(p=>p.Category)
+            .Select(p => p.Category)
             .Distinct()
             .OrderBy(c => c);
 
-        // Truyền danh sách categories này qua giao diện hiển thị
         return View(categories);
     }
 }

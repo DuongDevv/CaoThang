@@ -1,0 +1,64 @@
+@model SportsStore.WebUI.Models.ProductEditViewModel
+@{
+    ViewData["Title"] = Model.ProductID == 0 ? "Thêm sản phẩm mới" : "Chỉnh sửa sản phẩm";
+    Layout = "_Layout";
+}
+
+<div class="card shadow-sm col-md-8 mx-auto mt-4">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">@(Model.ProductID == 0 ? "Thêm sản phẩm mới" : $"Chỉnh sửa: {Model.Name}")</h4>
+    </div>
+    <div class="card-body">
+        <form asp-action="Save" enctype="multipart/form-data" method="post">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" asp-for="ExistingImageUrl" />
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label fw-bold"></label>
+                <input asp-for="Name" class="form-control" placeholder="Nhập tên sản phẩm..." />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label fw-bold"></label>
+                <textarea asp-for="Description" class="form-control" rows="3" placeholder="Nhập mô tả sản phẩm..."></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Price" class="form-label fw-bold"></label>
+                    <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Category" class="form-label fw-bold"></label>
+                    <input asp-for="Category" class="form-control" placeholder="Ví dụ: Soccer, Watersports..." />
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Ảnh đại diện sản phẩm (Upload File)</label>
+                <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                <div class="form-text">Hỗ trợ các định dạng .jpg, .png, .webp, .gif (Dung lượng &lt; 5MB)</div>
+                @if (!string.IsNullOrEmpty(Model.ExistingImageUrl))
+                {
+                    <div class="mt-2">
+                        <span class="d-block text-muted mb-1">Ảnh hiện tại:</span>
+                        <img src="@Model.ExistingImageUrl" alt="Current Image" style="max-height: 100px;" class="img-thumbnail" />
+                    </div>
+                }
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+                <button type="submit" class="btn btn-success px-4">Lưu thông tin</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

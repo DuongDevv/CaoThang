@@ -1,23 +1,23 @@
+using Microsoft.EntityFrameworkCore;
 using SportsStore.Domain;
 using SportsStore.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// 1. Register Controllers with Views
 builder.Services.AddControllersWithViews();
 
-// Đăng ký dịch vụ với DI Container.
-// Khi có một yêu cầu cho IProductRepository, hãy tạo một instance của FakeProductRepository.
-// AddScoped: Một instance mới sẽ được tạo cho mỗi HTTP request.
-builder.Services.AddScoped<IProductRepository, FakeProductRepository>();
+// 2. Configure Entity Framework Core DbContext with SQLite
+builder.Services.AddDbContext<SportsStoreDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("SportsStoreConnection")));
 
-// Đăng ký bộ nhớ đệm RAM để cất dữ liệu Session
+// 3. Register EFProductRepository for IProductRepository DI
+builder.Services.AddScoped<IProductRepository, EFProductRepository>();
+
+// 4. Configure Session State
 builder.Services.AddDistributedMemoryCache();
-
-// Đăng ký dịch vụ Session với các cấu hình về thời gian và bảo mật
 builder.Services.AddSession(options =>
 {
-    // Giỏ hàng sẽ tự xóa nếu người dùng không thao tác gì trong 30 phút
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
@@ -25,14 +25,10 @@ builder.Services.AddSession(options =>
 
 var app = builder.Build();
 
-//Kích hoạt tính năng Session cho toàn bộ ứng dụng
-app.UseSession();
-
-// Configure the HTTP request pipeline.
+// 5. Configure HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -40,11 +36,35 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
+app.UseSession();
+
+// 6. Custom SEO Routing rules
+app.MapControllerRoute(
+    name: "catpage",
+    pattern: "{category}/Page{productPage:int}",
+    defaults: new { Controller = "Home", action = "Index" });
+
+app.MapControllerRoute(
+    name: "page",
+    pattern: "Page{productPage:int}",
+    defaults: new { Controller = "Home", action = "Index", productPage = 1 });
+
+app.MapControllerRoute(
+    name: "category",
+    pattern: "{category}",
+    defaults: new { Controller = "Home", action = "Index", productPage = 1 });
+
+app.MapControllerRoute(
+    name: "pagination",
+    pattern: "Products/Page{productPage}",
+    defaults: new { Controller = "Home", action = "Index", productPage = 1 });
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// 7. Seed Database Migration & Initial Data
+SeedData.EnsurePopulated(app.Services);
 
 app.Run();

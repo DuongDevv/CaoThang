@@ -22,6 +22,7 @@ public class PageLinkTagHelper : TagHelper
     public ViewContext? ViewContext { get; set; }
     public PagingInfo? PageModel { get; set; }
     public string? PageAction { get; set; }
+    public string? PageCategory { get; set; }
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
@@ -33,7 +34,17 @@ public class PageLinkTagHelper : TagHelper
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { productPage = i });
+                var routeValues = new Dictionary<string, object?>
+                {
+                    { "productPage", i }
+                };
+
+                if (!string.IsNullOrEmpty(PageCategory))
+                {
+                    routeValues["category"] = PageCategory;
+                }
+
+                tag.Attributes["href"] = urlHelper.Action(PageAction, routeValues);
                 tag.InnerHtml.Append(i.ToString());
 
                 if (i == PageModel.CurrentPage)

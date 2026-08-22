@@ -37,7 +37,7 @@ export default function UserForm({ onAddUser }) {
       borderRadius: '8px',
       boxShadow: '0 2px 8px rgba(0,0,0,0.04)' 
     }}>
-      <h3 style={{ marginTop: 0, marginBottom: '16px', color: '#212529', fontSize: '18px' }}>➕ Thêm Người Dùng Mới</h3>
+      <h3 style={{ marginTop: 0, marginBottom: '16px', color: '#212529', fontSize: '18px' }}> Thêm Người Dùng Mới</h3>
       <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
         <input
           type="text"
