@@ -1,0 +1,109 @@
+/* ==========================================================================
+   ENTERPRISE ABSTRACT & SEMANTIC CLASS NAMES (BEM CONVENTION)
+   ========================================================================== */
+
+/* 1. LAYOUT & CONTAINER CLASS NAMES */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.app-main-content {
+    flex: 1 0 auto;
+}
+
+.app-footer {
+    flex-shrink: 0;
+}
+
+/* 2. CARD PRODUCT COMPONENT (.card-product) */
+.card-product {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.card-product__image {
+    height: 180px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-product__body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+}
+
+.card-product__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0d6efd;
+    margin-bottom: 0.5rem;
+}
+
+.card-product__description {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.card-product__price-tag {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.4em 0.7em;
+}
+
+/* CLASS CSS TÙY CHỈNH CHO HIỆU ỨNG HOVER THẺ SẢN PHẨM */
+.card-product--hovered {
+    box-shadow: 0 0.75rem 1.5rem rgba(13, 110, 253, 0.15) !important;
+    border-color: #0d6efd !important;
+    transform: translateY(-4px);
+}
+
+.card-product__description--hidden {
+    display: none !important;
+}
+
+/* 3. BUTTON COMPONENTS */
+.btn-cart-action {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-toggle-info {
+    font-size: 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 4. SIDEBAR CATEGORY MENU COMPONENT (.sidebar-category) */
+.sidebar-category {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.sidebar-category__header {
+    background-color: #212529;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.8rem 1rem;
+}
+
+.sidebar-category__item {
+    font-weight: 500;
+    color: #495057;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-category__item--active {
+    background-color: #0d6efd !important;
+    color: #ffffff !important;
+    font-weight: 700;
+}

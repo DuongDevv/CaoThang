@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="NguyenQuocDuong_102_De01.Domain/NguyenQuocDuong_102_De01.Domain.csproj" />
+  <Project Path="NguyenQuocDuong_102_De01.Infrastructure/NguyenQuocDuong_102_De01.Infrastructure.csproj" />
+  <Project Path="NguyenQuocDuong_102_De01.WebUI/NguyenQuocDuong_102_De01.WebUI.csproj" />
+</Solution>

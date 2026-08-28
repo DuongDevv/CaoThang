@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SportsStoreDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SportsStoreConnection")));
 
-// 3. Register EFProductRepository for IProductRepository DI
+// 3. Register Repository Service (Default: EFProductRepository, hoặc FakeProductRepository)
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 
 // 4. Configure Session State
@@ -39,30 +39,25 @@ app.UseRouting();
 app.UseAuthorization();
 app.UseSession();
 
-// 6. Custom SEO Routing rules
+// 6. Custom Routing for Product Page & Category Filter
 app.MapControllerRoute(
     name: "catpage",
-    pattern: "{category}/Page{productPage:int}",
-    defaults: new { Controller = "Home", action = "Index" });
+    pattern: "{categoryId}/Page{page:int}",
+    defaults: new { Controller = "Product", action = "List" });
 
 app.MapControllerRoute(
     name: "page",
-    pattern: "Page{productPage:int}",
-    defaults: new { Controller = "Home", action = "Index", productPage = 1 });
+    pattern: "Page{page:int}",
+    defaults: new { Controller = "Product", action = "List", page = 1 });
 
 app.MapControllerRoute(
     name: "category",
-    pattern: "{category}",
-    defaults: new { Controller = "Home", action = "Index", productPage = 1 });
-
-app.MapControllerRoute(
-    name: "pagination",
-    pattern: "Products/Page{productPage}",
-    defaults: new { Controller = "Home", action = "Index", productPage = 1 });
+    pattern: "{categoryId}",
+    defaults: new { Controller = "Product", action = "List", page = 1 });
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Product}/{action=List}/{id?}");
 
 // 7. Seed Database Migration & Initial Data
 SeedData.EnsurePopulated(app.Services);

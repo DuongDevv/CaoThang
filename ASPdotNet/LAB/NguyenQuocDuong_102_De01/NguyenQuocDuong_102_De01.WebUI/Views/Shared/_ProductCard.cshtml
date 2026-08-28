@@ -1,0 +1,34 @@
+@model NguyenQuocDuong_102_De01.Domain.Product
+
+<div class="card h-100 shadow-sm card-product">
+    <img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? "https://picsum.photos/300/200" : Model.ImageUrl)" 
+         class="card-img-top card-product__image" 
+         alt="@Model.Name" />
+    <div class="card-body card-product__body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+            <h5 class="card-title card-product__title mb-0">@Model.Name</h5>
+            <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.ProductID" class="btn btn-sm btn-outline-secondary py-0 px-2" title="Chỉnh sửa">
+                Sửa
+            </a>
+        </div>
+        
+        <p class="card-text card-product__description flex-grow-1">
+            @Model.Description
+        </p>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="badge bg-danger card-product__price-tag">@Model.Price.ToString("N0") VNĐ</span>
+            <button type="button" class="btn btn-sm btn-link btn-toggle-info p-0">
+                Toggle Desc
+            </button>
+        </div>
+
+        <form asp-controller="Product" asp-action="AddToCart" method="post" class="add-to-cart-form mt-auto">
+            <input type="hidden" name="productId" value="@Model.ProductID" />
+            <input type="hidden" name="quantity" value="1" />
+            <button type="submit" class="btn btn-primary btn-sm w-100 btn-cart-action">
+                Thêm vào giỏ
+            </button>
+        </form>
+    </div>
+</div>

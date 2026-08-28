@@ -1,51 +1,38 @@
 using SportsStore.Domain;
 
-namespace SportsStore.WebUI.Models;
-
-// Lớp đại diện cho MỘT DÒNG SẢN PHẨM trong giỏ hàng
-public class CartLine
+namespace SportsStore.WebUI.Models
 {
-    public int CartLineId { get; set; }
-    
-    // Khởi tạo Product với các thuộc tính required để tránh lỗi CS9035
-    public Product Product { get; set; } = new Product 
-    { 
-        Name = string.Empty, 
-        Description = string.Empty, 
-        Category = string.Empty 
-    };
-    
-    public int Quantity { get; set; }
-}
-
-// Lớp đại diện cho TOÀN BỘ GIỎ HÀNG
-public class Cart
-{
-    public List<CartLine> Lines { get; set; } = new List<CartLine>();
-
-    // Thêm sản phẩm vào giỏ (nếu có rồi thì cộng dồn số lượng)
-    public virtual void AddItem(Product product, int quantity)
+    public class CartLine
     {
-        CartLine? line = Lines.FirstOrDefault(p => p.Product.ProductID == product.ProductID);
-
-        if (line == null)
-        {
-            Lines.Add(new CartLine { Product = product, Quantity = quantity });
-        }
-        else
-        {
-            line.Quantity += quantity;
-        }
+        public int CartLineId { get; set; }
+        public Product Product { get; set; } = new Product();
+        public int Quantity { get; set; }
     }
 
-    // Xóa một dòng sản phẩm khỏi giỏ dựa trên ProductID
-    public virtual void RemoveLine(Product product) =>
-        Lines.RemoveAll(l => l.Product.ProductID == product.ProductID);
+    public class Cart
+    {
+        public List<CartLine> Lines { get; set; } = new List<CartLine>();
 
-    // Tính tổng số tiền của toàn bộ giỏ hàng
-    public decimal ComputeTotalValue() =>
-        Lines.Sum(e => e.Product.Price * e.Quantity);
+        public virtual void AddItem(Product product, int quantity)
+        {
+            CartLine? line = Lines.FirstOrDefault(p => p.Product.ProductID == product.ProductID);
 
-    // Xóa sạch tất cả sản phẩm trong giỏ hàng
-    public virtual void Clear() => Lines.Clear();
+            if (line == null)
+            {
+                Lines.Add(new CartLine { Product = product, Quantity = quantity });
+            }
+            else
+            {
+                line.Quantity += quantity;
+            }
+        }
+
+        public virtual void RemoveLine(Product product) =>
+            Lines.RemoveAll(l => l.Product.ProductID == product.ProductID);
+
+        public decimal ComputeTotalValue() =>
+            Lines.Sum(e => e.Product.Price * e.Quantity);
+
+        public virtual void Clear() => Lines.Clear();
+    }
 }

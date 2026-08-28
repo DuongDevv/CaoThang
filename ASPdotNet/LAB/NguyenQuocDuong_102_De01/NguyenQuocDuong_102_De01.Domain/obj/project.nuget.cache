@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PGkV2DGx/k8=",
+  "success": true,
+  "projectFilePath": "/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/NguyenQuocDuong_102_De01.Domain.csproj",
+  "expectedPackageFiles": [
+    "/home/duong/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.29/microsoft.aspnetcore.app.ref.8.0.29.nupkg.sha512"
+  ],
+  "logs": []
+}

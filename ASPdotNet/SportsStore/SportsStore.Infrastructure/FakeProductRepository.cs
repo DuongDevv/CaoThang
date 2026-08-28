@@ -1,51 +1,66 @@
+using System.Collections.Generic;
+using System.Linq;
 using SportsStore.Domain;
 
-namespace SportsStore.Infrastructure;
-
-public class FakeProductRepository : IProductRepository
+namespace SportsStore.Infrastructure
 {
-    private List<Product> _products = new List<Product>
+    public class FakeProductRepository : IProductRepository
     {
-        new Product { ProductID = 1, Name = "Football", Description = "FIFA-approved size and weight", Price = 25, Category = "Soccer", ImageUrl = "/images/football.png" },
-        new Product { ProductID = 2, Name = "Surf Board", Description = "A board for riding the waves", Price = 179, Category = "Surfing", ImageUrl = "/images/surfboard.png" },
-        new Product { ProductID = 3, Name = "Running Shoes", Description = "Comfortable and stylish running shoes", Price = 95, Category = "Running", ImageUrl = "/images/runningshoes.png" },
-        new Product { ProductID = 4, Name = "Kayak", Description = "A boat for one person", Price = 275, Category = "Watersports", ImageUrl = "/images/kayak.png" },
-        new Product { ProductID = 5, Name = "Corner Flags", Description = "Give your playing field a professional touch", Price = 34.95m, Category = "Soccer", ImageUrl = "/images/cornerflags.png" }
-    };
-
-    public IQueryable<Product> Products => _products.AsQueryable();
-
-    public void SaveProduct(Product product)
-    {
-        if (product.ProductID == 0)
+        private static readonly List<Category> _categories = new List<Category>
         {
-            product.ProductID = _products.Count > 0 ? _products.Max(p => p.ProductID) + 1 : 1;
-            _products.Add(product);
+            new Category { CategoryId = 1, Name = "Bóng đá" },
+            new Category { CategoryId = 2, Name = "Cầu lông" }
+        };
+
+        private static readonly List<Product> _products = new List<Product>
+        {
+            new Product { ProductID = 1, Name = "Bóng A", Price = 450000, CategoryId = 1, ImageUrl = "/images/wukong.jpg", Description = "Mô tả sản phẩm Bóng A" },
+            new Product { ProductID = 2, Name = "Bóng B", Price = 290000, CategoryId = 1, ImageUrl = "/images/guts.jpg", Description = "Mô tả sản phẩm Bóng B" },
+            new Product { ProductID = 3, Name = "Giày A", Price = 850000, CategoryId = 2, ImageUrl = "/images/zoro.jpg", Description = "Mô tả sản phẩm Giày A" },
+            new Product { ProductID = 4, Name = "Giày B", Price = 1200000, CategoryId = 2, ImageUrl = "/images/toji.jpg", Description = "Mô tả sản phẩm Giày B" }
+        };
+
+        private static int _cartItemCount = 0;
+
+        public IQueryable<Product> Products => _products.AsQueryable();
+        public IQueryable<Category> Categories => _categories.AsQueryable();
+
+        public int GetCartItemCount() => _cartItemCount;
+
+        public void AddToCart(int productId, int quantity)
+        {
+            _cartItemCount += quantity;
         }
-        else
+
+        public void SaveProduct(Product product)
         {
-            Product? dbEntry = _products.FirstOrDefault(p => p.ProductID == product.ProductID);
-            if (dbEntry != null)
+            if (product.ProductID == 0)
             {
-                dbEntry.Name = product.Name;
-                dbEntry.Description = product.Description;
-                dbEntry.Price = product.Price;
-                dbEntry.Category = product.Category;
-                if (product.ImageUrl != null)
+                product.ProductID = _products.Any() ? _products.Max(p => p.ProductID) + 1 : 1;
+                _products.Add(product);
+            }
+            else
+            {
+                var dbEntry = _products.FirstOrDefault(p => p.ProductID == product.ProductID);
+                if (dbEntry != null)
                 {
+                    dbEntry.Name = product.Name;
+                    dbEntry.Price = product.Price;
+                    dbEntry.Description = product.Description;
+                    dbEntry.CategoryId = product.CategoryId;
                     dbEntry.ImageUrl = product.ImageUrl;
                 }
             }
         }
-    }
 
-    public Product? DeleteProduct(int productID)
-    {
-        Product? dbEntry = _products.FirstOrDefault(p => p.ProductID == productID);
-        if (dbEntry != null)
+        public Product? DeleteProduct(int productID)
         {
-            _products.Remove(dbEntry);
+            Product? dbEntry = _products.FirstOrDefault(p => p.ProductID == productID);
+            if (dbEntry != null)
+            {
+                _products.Remove(dbEntry);
+            }
+            return dbEntry;
         }
-        return dbEntry;
     }
 }

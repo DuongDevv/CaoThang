@@ -7,9 +7,11 @@ use App\Http\Controllers\ProductController;
 Route::get('/', [HomeController::class, 'index'])->name("home.index");
 Route::get('/about', [HomeController::class, 'about'])->name("home.about");
 
-Route::get('/products/create', [ProductController::class, 'create'])->name("product.create");
-Route::post('/products/store', [ProductController::class, 'store'])->name("product.store"); 
+Route::prefix('products')->name('products.')->group(function() {
+    Route::get('/trash', [ProductController::class,'trash'])->name('trash');
+    Route::post('/{id}/restore', [ProductController::class, 'restore'])->name('restore');
+    Route::delete('/{id}/force-delete', [ProductController::class, 'forceDelete'])->name('forceDelete');
+});
 
-Route::get('/products', [ProductController::class, 'index'])->name("product.index");
-Route::get('/products/{id}', [ProductController::class, 'show'])->name("product.show");
+Route::resource('products', ProductController::class);
 

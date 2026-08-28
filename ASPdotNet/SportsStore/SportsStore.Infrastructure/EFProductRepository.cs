@@ -1,52 +1,63 @@
+using System.Linq;
 using SportsStore.Domain;
 
-namespace SportsStore.Infrastructure;
-
-public class EFProductRepository : IProductRepository
+namespace SportsStore.Infrastructure
 {
-    private SportsStoreDbContext context;
-
-    public EFProductRepository(SportsStoreDbContext ctx)
+    public class EFProductRepository : IProductRepository
     {
-        context = ctx;
-    }
+        private readonly SportsStoreDbContext _context;
+        private static int _cartCount = 0;
 
-    public IQueryable<Product> Products => context.Products;
-
-    public void SaveProduct(Product product)
-    {
-        if (product.ProductID == 0)
+        public EFProductRepository(SportsStoreDbContext ctx)
         {
-            context.Products.Add(product);
+            _context = ctx;
         }
-        else
+
+        public IQueryable<Product> Products => _context.Products;
+        public IQueryable<Category> Categories => _context.Categories;
+
+        public int GetCartItemCount() => _cartCount;
+
+        public void AddToCart(int productId, int quantity)
         {
-            Product? dbEntry = context.Products
-                .FirstOrDefault(p => p.ProductID == product.ProductID);
-            if (dbEntry != null)
+            _cartCount += quantity;
+        }
+
+        public void SaveProduct(Product product)
+        {
+            if (product.ProductID == 0)
             {
-                dbEntry.Name = product.Name;
-                dbEntry.Description = product.Description;
-                dbEntry.Price = product.Price;
-                dbEntry.Category = product.Category;
-                if (!string.IsNullOrEmpty(product.ImageUrl))
+                _context.Products.Add(product);
+            }
+            else
+            {
+                Product? dbEntry = _context.Products
+                    .FirstOrDefault(p => p.ProductID == product.ProductID);
+                if (dbEntry != null)
                 {
-                    dbEntry.ImageUrl = product.ImageUrl;
+                    dbEntry.Name = product.Name;
+                    dbEntry.Description = product.Description;
+                    dbEntry.Price = product.Price;
+                    dbEntry.CategoryId = product.CategoryId;
+                    if (!string.IsNullOrEmpty(product.ImageUrl))
+                    {
+                        dbEntry.ImageUrl = product.ImageUrl;
+                    }
                 }
             }
+            _context.SaveChanges();
         }
-        context.SaveChanges();
-    }
 
-    public Product? DeleteProduct(int productID)
-    {
-        Product? dbEntry = context.Products
-            .FirstOrDefault(p => p.ProductID == productID);
-        if (dbEntry != null)
+        public Product? DeleteProduct(int productID)
         {
-            context.Products.Remove(dbEntry);
-            context.SaveChanges();
+            Product? dbEntry = _context.Products
+                .FirstOrDefault(p => p.ProductID == productID);
+            if (dbEntry != null)
+            {
+                _context.Products.Remove(dbEntry);
+                _context.SaveChanges();
+            }
+            return dbEntry;
         }
-        return dbEntry;
     }
 }

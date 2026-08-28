@@ -1,0 +1,16 @@
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/bin/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.deps.json
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/bin/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/bin/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.pdb
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/bin/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/bin/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.pdb
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.csproj.AssemblyReference.cache
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.AssemblyInfoInputs.cache
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.AssemblyInfo.cs
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.csproj.CoreCompileInputs.cache
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.sourcelink.json
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/NguyenQu.30A6683F.Up2Date
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/refint/NguyenQuocDuong_102_De01.Infrastructure.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Infrastructure.pdb
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Infrastructure/obj/Debug/net8.0/ref/NguyenQuocDuong_102_De01.Infrastructure.dll

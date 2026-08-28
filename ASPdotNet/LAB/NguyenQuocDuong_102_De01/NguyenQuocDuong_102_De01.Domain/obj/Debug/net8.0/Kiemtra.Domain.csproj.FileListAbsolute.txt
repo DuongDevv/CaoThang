@@ -1,0 +1,12 @@
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/bin/Debug/net8.0/Kiemtra.Domain.deps.json
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/bin/Debug/net8.0/Kiemtra.Domain.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/bin/Debug/net8.0/Kiemtra.Domain.pdb
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/obj/Debug/net8.0/Kiemtra.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/obj/Debug/net8.0/Kiemtra.Domain.AssemblyInfoInputs.cache
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/obj/Debug/net8.0/Kiemtra.Domain.AssemblyInfo.cs
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/obj/Debug/net8.0/Kiemtra.Domain.csproj.CoreCompileInputs.cache
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/obj/Debug/net8.0/Kiemtra.Domain.sourcelink.json
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/obj/Debug/net8.0/Kiemtra.Domain.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/obj/Debug/net8.0/refint/Kiemtra.Domain.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/obj/Debug/net8.0/Kiemtra.Domain.pdb
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Domain/obj/Debug/net8.0/ref/Kiemtra.Domain.dll

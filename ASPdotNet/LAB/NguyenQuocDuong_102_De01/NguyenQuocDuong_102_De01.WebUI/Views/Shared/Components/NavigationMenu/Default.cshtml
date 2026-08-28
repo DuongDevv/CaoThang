@@ -1,0 +1,24 @@
+@model IEnumerable<NguyenQuocDuong_102_De01.Domain.Category>
+
+<div class="card shadow-sm border-0 mb-4 sidebar-category">
+    <div class="card-header sidebar-category__header">
+        LỌC THEO DANH MỤC
+    </div>
+    <div class="list-group list-group-flush">
+        <a asp-controller="Product" 
+           asp-action="List" 
+           asp-route-categoryId="" 
+           class="list-group-item list-group-item-action sidebar-category__item @(ViewBag.SelectedCategory == null ? "sidebar-category__item--active" : "")">
+            Tất cả sản phẩm
+        </a>
+        @foreach (var cat in Model)
+        {
+            <a asp-controller="Product" 
+               asp-action="List" 
+               asp-route-categoryId="@cat.CategoryId" 
+               class="list-group-item list-group-item-action sidebar-category__item @(ViewBag.SelectedCategory?.ToString() == cat.CategoryId.ToString() ? "sidebar-category__item--active" : "")">
+                @cat.Name
+            </a>
+        }
+    </div>
+</div>

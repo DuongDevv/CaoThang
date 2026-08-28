@@ -1,11 +1,14 @@
-namespace SportsStore.Domain;
+using System.Linq;
 
-/// <summary>
-/// Interface (hợp đồng) định nghĩa các hoạt động liên quan đến kho sản phẩm.
-/// </summary>
-public interface IProductRepository
+namespace SportsStore.Domain
 {
-    IQueryable<Product> Products { get; }
-    void SaveProduct(Product product);
-    Product? DeleteProduct(int productID);
+    public interface IProductRepository
+    {
+        IQueryable<Product> Products { get; }
+        IQueryable<Category> Categories { get; }
+        void SaveProduct(Product product);
+        Product? DeleteProduct(int productID);
+        int GetCartItemCount();
+        void AddToCart(int productId, int quantity);
+    }
 }

@@ -1,123 +1,106 @@
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
 using SportsStore.Domain;
 using SportsStore.WebUI.Models;
 
-namespace SportsStore.WebUI.Controllers;
-
-public class AdminController : Controller
+namespace SportsStore.WebUI.Controllers
 {
-    private IProductRepository repository;
-    private IWebHostEnvironment environment;
-
-    public AdminController(IProductRepository repo, IWebHostEnvironment env)
+    public class AdminController : Controller
     {
-        repository = repo;
-        environment = env;
-    }
+        private readonly IProductRepository _repository;
+        private readonly IWebHostEnvironment _environment;
 
-    public IActionResult Index() => View(repository.Products.OrderBy(p => p.ProductID));
-
-    public IActionResult Edit(int productId)
-    {
-        Product? product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
-        if (product == null)
+        public AdminController(IProductRepository repo, IWebHostEnvironment env)
         {
-            return NotFound();
+            _repository = repo;
+            _environment = env;
         }
 
-        var viewModel = new ProductEditViewModel
+        public IActionResult Index() => View(_repository.Products.OrderBy(p => p.ProductID));
+
+        public IActionResult Edit(int productId)
         {
-            ProductID = product.ProductID,
-            Name = product.Name,
-            Description = product.Description,
-            Price = product.Price,
-            Category = product.Category,
-            ExistingImageUrl = product.ImageUrl
-        };
-
-        return View(viewModel);
-    }
-
-    public IActionResult Create() => View("Edit", new ProductEditViewModel());
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Save(ProductEditViewModel viewModel, IFormFile? imageFile)
-    {
-        if (imageFile != null && imageFile.Length > 0)
-        {
-            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".webp", ".gif" };
-            var extension = Path.GetExtension(imageFile.FileName).ToLowerInvariant();
-
-            if (!allowedExtensions.Contains(extension))
+            Product? product = _repository.Products.FirstOrDefault(p => p.ProductID == productId);
+            if (product == null && productId != 0)
             {
-                ModelState.AddModelError("imageFile", "Chỉ chấp nhận các định dạng ảnh (.jpg, .jpeg, .png, .webp, .gif)");
+                return NotFound();
             }
 
-            if (imageFile.Length > 5 * 1024 * 1024) // 5MB
+            var viewModel = new ProductEditViewModel
             {
-                ModelState.AddModelError("imageFile", "Kích thước ảnh đại diện không được vượt quá 5MB");
-            }
+                ProductID = product?.ProductID ?? 0,
+                Name = product?.Name ?? string.Empty,
+                Description = product?.Description ?? string.Empty,
+                Price = product?.Price ?? 0,
+                Category = product?.CategoryId.ToString() ?? string.Empty,
+                ImageUrl = product?.ImageUrl
+            };
+
+            return View(viewModel);
         }
 
-        if (ModelState.IsValid)
-        {
-            string? imageUrl = viewModel.ExistingImageUrl;
+        public IActionResult Create() => View("Edit", new ProductEditViewModel());
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Save(ProductEditViewModel viewModel, IFormFile? imageFile)
+        {
             if (imageFile != null && imageFile.Length > 0)
             {
-                string uploadsFolder = Path.Combine(environment.WebRootPath, "images", "products");
+                var uploadsFolder = Path.Combine(_environment.WebRootPath, "images");
                 if (!Directory.Exists(uploadsFolder))
                 {
                     Directory.CreateDirectory(uploadsFolder);
                 }
 
-                string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(imageFile.FileName);
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(imageFile.FileName);
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     await imageFile.CopyToAsync(fileStream);
                 }
 
-                imageUrl = "/images/products/" + uniqueFileName;
+                viewModel.ImageUrl = "/images/" + uniqueFileName;
             }
 
-            Product product = new Product
+            if (ModelState.IsValid)
             {
-                ProductID = viewModel.ProductID,
-                Name = viewModel.Name,
-                Description = viewModel.Description,
-                Price = viewModel.Price,
-                Category = viewModel.Category,
-                ImageUrl = imageUrl
-            };
+                int catId = 1;
+                int.TryParse(viewModel.Category, out catId);
 
-            repository.SaveProduct(product);
-            TempData["message"] = $"Đã lưu sản phẩm {product.Name} thành công!";
-            return RedirectToAction("Index");
-        }
-
-        return View("Edit", viewModel);
-    }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult Delete(int productId)
-    {
-        Product? deletedProduct = repository.DeleteProduct(productId);
-        if (deletedProduct != null)
-        {
-            if (!string.IsNullOrEmpty(deletedProduct.ImageUrl) && deletedProduct.ImageUrl.StartsWith("/images/products/"))
-            {
-                string fullPath = Path.Combine(environment.WebRootPath, deletedProduct.ImageUrl.TrimStart('/'));
-                if (System.IO.File.Exists(fullPath))
+                Product product = new Product
                 {
-                    System.IO.File.Delete(fullPath);
-                }
+                    ProductID = viewModel.ProductID,
+                    Name = viewModel.Name,
+                    Description = viewModel.Description,
+                    Price = viewModel.Price,
+                    CategoryId = catId == 0 ? 1 : catId,
+                    ImageUrl = viewModel.ImageUrl
+                };
+
+                _repository.SaveProduct(product);
+                TempData["message"] = $"Đã lưu sản phẩm {product.Name}!";
+                return RedirectToAction(nameof(Index));
             }
-            TempData["message"] = $"Đã xóa sản phẩm {deletedProduct.Name}!";
+
+            return View("Edit", viewModel);
         }
-        return RedirectToAction("Index");
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int productId)
+        {
+            Product? deletedProduct = _repository.DeleteProduct(productId);
+            if (deletedProduct != null)
+            {
+                TempData["message"] = $"Đã xóa sản phẩm {deletedProduct.Name}!";
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -1,15 +1,28 @@
-namespace SportsStore.Domain;
-/// <summary>
-/// Lớp POCO đại diện cho một sản phẩm trong cửa hàng.
-/// </summary>
-public class Product
+using System.ComponentModel.DataAnnotations;
+
+namespace SportsStore.Domain
 {
-// Dấu ? cho biết thuộc tính này có thể là null (nullable).
-public int ProductID { get; set; }
-public required string Name { get; set; } // required đảm bảo thuộc tính này phải được khởi tạo
-public required string Description { get; set; }
-public decimal Price { get; set; }
-public required string Category { get; set; }
-// Thêm thuộc tính ImageUrl để lưu đường dẫn ảnh
-public string? ImageUrl { get; set; }
+    public class Product
+    {
+        [Key]
+        public int ProductID { get; set; }
+
+        [Required(ErrorMessage = "Tên sản phẩm là bắt buộc.")]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Tên sản phẩm từ 5 đến 100 ký tự.")]
+        public string Name { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Giá sản phẩm là bắt buộc.")]
+        [Range(0.01, (double)decimal.MaxValue, ErrorMessage = "Giá sản phẩm phải lớn hơn 0.")]
+        public decimal Price { get; set; }
+
+        [StringLength(500, ErrorMessage = "Mô tả tối đa 500 ký tự.")]
+        public string? Description { get; set; }
+
+        public string? ImageUrl { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng chọn danh mục.")]
+        public int CategoryId { get; set; }
+
+        public Category? Category { get; set; }
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
@@ -11,11 +12,16 @@ class Product extends Model
 
     // Khai báo các cột được phép gán dữ liệu hàng loạt
     protected $fillable = [
+        'category_id',
         'name',
-        'description',
-        'image',
         'price',
+        'stock_quantity',
+        'description'
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 
     // --- GETTERS & SETTERS ---
     public function getId(): int

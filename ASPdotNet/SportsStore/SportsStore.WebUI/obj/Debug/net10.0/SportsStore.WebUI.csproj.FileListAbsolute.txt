@@ -28,10 +28,8 @@
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/scopedcss/bundle/SportsStore.WebUI.styles.css
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/scopedcss/projectbundle/SportsStore.WebUI.bundle.scp.css
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/compressed/64vq1ssxyo-{0}-026e6kk7rh-026e6kk7rh.gz
-/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/compressed/0gw17fs891-{0}-fosamezn9b-fosamezn9b.gz
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/compressed/wnlil1gl28-{0}-61n19gt1b8-61n19gt1b8.gz
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/compressed/j9o71ed4lv-{0}-wvublzrdv8-wvublzrdv8.gz
-/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/compressed/6438t35p38-{0}-fr7q2aak1r-fr7q2aak1r.gz
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/compressed/e2zimse2g0-{0}-agp80tu62r-agp80tu62r.gz
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/compressed/v2q1vpzul4-{0}-st1cbwfwo5-st1cbwfwo5.gz
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/compressed/e91y5b75r1-{0}-unj9p35syc-unj9p35syc.gz
@@ -196,3 +194,5 @@
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/bin/Debug/net10.0/runtimes/win-arm64/native/e_sqlite3.dll
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/bin/Debug/net10.0/runtimes/win-x64/native/e_sqlite3.dll
 /home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/bin/Debug/net10.0/runtimes/win-x86/native/e_sqlite3.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/compressed/0gw17fs891-{0}-o1ako3ijs0-o1ako3ijs0.gz
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/SportsStore/SportsStore.WebUI/obj/Debug/net10.0/compressed/6438t35p38-{0}-qs3qmcxbii-qs3qmcxbii.gz

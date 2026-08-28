@@ -1,25 +1,23 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SportsStore.Domain;
 
-namespace SportsStore.WebUI.Components;
-
-public class NavigationMenuViewComponent : ViewComponent
+namespace SportsStore.WebUI.Components
 {
-    private IProductRepository _repository;
-
-    public NavigationMenuViewComponent(IProductRepository repo)
+    public class NavigationMenuViewComponent : ViewComponent
     {
-        _repository = repo;
-    }
+        private readonly IProductRepository _repository;
 
-    public IViewComponentResult Invoke()
-    {
-        ViewBag.SelectedCategory = RouteData?.Values["category"];
-        var categories = _repository.Products
-            .Select(p => p.Category)
-            .Distinct()
-            .OrderBy(c => c);
+        public NavigationMenuViewComponent(IProductRepository repository)
+        {
+            _repository = repository;
+        }
 
-        return View(categories);
+        public IViewComponentResult Invoke()
+        {
+            ViewBag.SelectedCategory = RouteData?.Values["categoryId"];
+            var categories = _repository.Categories.OrderBy(c => c.Name);
+            return View(categories);
+        }
     }
 }

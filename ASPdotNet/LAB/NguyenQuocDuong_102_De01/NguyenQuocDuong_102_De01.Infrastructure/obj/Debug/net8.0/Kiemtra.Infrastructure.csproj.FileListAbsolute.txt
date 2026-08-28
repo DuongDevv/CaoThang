@@ -1,0 +1,16 @@
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/bin/Debug/net8.0/Kiemtra.Infrastructure.deps.json
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/bin/Debug/net8.0/Kiemtra.Infrastructure.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/bin/Debug/net8.0/Kiemtra.Infrastructure.pdb
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/bin/Debug/net8.0/Kiemtra.Domain.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/bin/Debug/net8.0/Kiemtra.Domain.pdb
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/Kiemtra.Infrastructure.csproj.AssemblyReference.cache
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/Kiemtra.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/Kiemtra.Infrastructure.AssemblyInfoInputs.cache
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/Kiemtra.Infrastructure.AssemblyInfo.cs
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/Kiemtra.Infrastructure.csproj.CoreCompileInputs.cache
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/Kiemtra.Infrastructure.sourcelink.json
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/Kiemtra..6A044863.Up2Date
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/Kiemtra.Infrastructure.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/refint/Kiemtra.Infrastructure.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/Kiemtra.Infrastructure.pdb
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/Kiemtra/Kiemtra.Infrastructure/obj/Debug/net8.0/ref/Kiemtra.Infrastructure.dll

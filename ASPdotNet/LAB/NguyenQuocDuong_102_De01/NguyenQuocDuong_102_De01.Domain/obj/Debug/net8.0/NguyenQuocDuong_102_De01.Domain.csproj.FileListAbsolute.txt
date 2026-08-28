@@ -1,0 +1,12 @@
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/bin/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.deps.json
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/bin/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/bin/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.pdb
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.AssemblyInfoInputs.cache
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.AssemblyInfo.cs
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.csproj.CoreCompileInputs.cache
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.sourcelink.json
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/obj/Debug/net8.0/refint/NguyenQuocDuong_102_De01.Domain.dll
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/obj/Debug/net8.0/NguyenQuocDuong_102_De01.Domain.pdb
+/home/duong/Data/Lil_Duong/CaoThang/ASPdotNet/LAB/NguyenQuocDuong_102_De01/NguyenQuocDuong_102_De01.Domain/obj/Debug/net8.0/ref/NguyenQuocDuong_102_De01.Domain.dll

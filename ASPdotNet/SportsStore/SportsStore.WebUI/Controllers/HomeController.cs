@@ -1,39 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
-using SportsStore.WebUI.Models;
-using SportsStore.Domain;
 
-namespace SportsStore.WebUI.Controllers;
-
-public class HomeController : Controller
+namespace SportsStore.WebUI.Controllers
 {
-    private IProductRepository _repository;
-    public int PageSize = 4;
-
-    public HomeController(IProductRepository repo)
+    public class HomeController : Controller
     {
-        _repository = repo;
-    }
-
-    public IActionResult Index(string? category, int productPage = 1)
-    {
-        return View(new ProductsListViewModel
+        public IActionResult Index(int? categoryId, int page = 1)
         {
-            Products = _repository.Products
-                .Where(p => category == null || p.Category == category)
-                .OrderBy(p => p.ProductID)
-                .Skip((productPage - 1) * PageSize)
-                .Take(PageSize),
-
-            PagingInfo = new PagingInfo
-            {
-                CurrentPage = productPage,
-                ItemsPerPage = PageSize,
-                TotalItems = category == null 
-                    ? _repository.Products.Count() 
-                    : _repository.Products.Where(e => e.Category == category).Count()
-            },
-
-            CurrentCategory = category
-        });
+            return RedirectToAction("List", "Product", new { categoryId, page });
+        }
     }
 }
