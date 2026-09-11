@@ -1,71 +1,41 @@
 <?php
 
+
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    // Khai báo các cột được phép gán dữ liệu hàng loạt
+    // Danh sách các cột được phép gán dữ liệu hàng loạt 
     protected $fillable = [
         'category_id',
+        'user_id', // Tự động lưu ID của người dùng tạo sản phẩm (Lab 10)
         'name',
         'price',
         'stock_quantity',
-        'description'
+        'description',
     ];
 
-    public function category(){
+    /**
+     * Mối quan hệ: Sản phẩm thuộc về một Danh mục
+     */
+    public function category(): BelongsTo
+    {
         return $this->belongsTo(Category::class);
     }
 
-    // --- GETTERS & SETTERS ---
-    public function getId(): int
+    /**
+     * Mối quan hệ: Sản phẩm được tạo bởi một Người dùng (Tác giả) - Lab 10
+     */
+    public function user(): BelongsTo
     {
-        return $this->attributes['id'];
-    }
-
-    public function getName(): string
-    {
-        return $this->attributes['name'];
-    }
-
-    public function setName(string $name): void
-    {
-        $this->attributes['name'] = $name;
-    }
-
-    public function getDescription(): string
-    {
-        return $this->attributes['description'];
-    }
-
-    public function setDescription(string $description): void
-    {
-        $this->attributes['description'] = $description;
-    }
-
-    public function getImage(): string
-    {
-        return $this->attributes['image'];
-    }
-
-    public function setImage(string $image): void
-    {
-        $this->attributes['image'] = $image;
-    }
-
-    public function getPrice(): int
-    {
-        return $this->attributes['price'];
-    }
-
-    public function setPrice(int $price): void
-    {
-        $this->attributes['price'] = $price;
+        return $this->belongsTo(User::class);
     }
 }

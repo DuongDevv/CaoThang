@@ -1,0 +1,15 @@
+@extends('layouts.app')                                                                                                                                                                                    
+@section('title', $viewData["title"])                                                                                                                                                                      
+@section('subtitle', $viewData["subtitle"])                                                                                                                                                                
+                                                                                                                                                                                                            
+@section('content')                                                                                                                                                                                        
+<div class="container">                                                                                                                                                                                    
+    <div class="row">                                                                                                                                                                                      
+        <div class="col-lg-8 ms-auto me-auto text-center">                                                                                                                                                 
+            <p class="lead">{{ $viewData["description"] }}</p>                                                                                                                                             
+            <hr class="my-4">                                                                                                                                                                              
+            <p class="fw-bold text-primary">{{ $viewData["author"] }}</p>                                                                                                                                  
+        </div>                                                                                                                                                                                             
+    </div>                                                                                                                                                                                                 
+</div>                                                                                                                                                                                                     
+@endsection   

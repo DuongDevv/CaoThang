@@ -2,24 +2,21 @@
 
 namespace Database\Seeders;
 
-use App\Models\Product;
-use App\Models\Category;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Category;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
-     * Seed the application's database.
+     * Seed the application's database with Categories and Products.
      */
     public function run(): void
     {
         Category::factory(10)->create();
-        $this->command->info('Đã tạo 10 danh mục!');
+        $this->command->info('Đã sinh 10 Danh mục!');
 
         Product::factory(50)->create();
-        $this->command->info('Đã tạo 50 sản phẩm!');
+        $this->command->info('Đã sinh 50 Sản phẩm!');
     }
 }

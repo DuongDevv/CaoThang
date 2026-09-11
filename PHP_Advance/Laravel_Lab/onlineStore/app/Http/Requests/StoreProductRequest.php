@@ -14,6 +14,7 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'category_id'    => 'required|exists:categories,id', // Bắt buộc chọn Danh mục
             'name'           => 'required|min:5|max:255',
             'price'          => 'required|numeric|min:0',
             'stock_quantity' => 'required|integer|min:0',
@@ -24,6 +25,8 @@ class StoreProductRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'category_id.required'    => 'Vui lòng chọn danh mục sản phẩm.',
+            'category_id.exists'      => 'Danh mục được chọn không hợp lệ.',
             'name.required'           => 'Vui lòng nhập tên sản phẩm.',
             'name.min'                => 'Tên sản phẩm phải có ít nhất 5 ký tự.',
             'price.required'          => 'Vui lòng nhập giá sản phẩm.',
