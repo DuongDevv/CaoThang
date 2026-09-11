@@ -1,23 +1,41 @@
 <?php
 
+// 0306241102_NguyenQuocDuong
+
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
-    public function getId() { return $this->attributes['id']; }
-    public function setId($id) { $this->attributes['id'] = $id; }
+    use HasFactory, SoftDeletes;
 
-    public function getName() { return $this->attributes['name']; }
-    public function setName($name) { $this->attributes['name'] = $name; }
+    // Danh sách các cột được phép gán dữ liệu hàng loạt - 0306241102_NguyenQuocDuong
+    protected $fillable = [
+        'category_id',
+        'user_id', // Tự động lưu ID của người dùng tạo sản phẩm (Lab 10)
+        'name',
+        'price',
+        'stock_quantity',
+        'description',
+    ];
 
-    public function getDescription() { return $this->attributes['description']; }
-    public function setDescription($description) { $this->attributes['description'] = $description; }
+    /**
+     * Mối quan hệ: Sản phẩm thuộc về một Danh mục
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 
-    public function getImage() { return $this->attributes['image']; }
-    public function setImage($image) { $this->attributes['image'] = $image; }
-
-    public function getPrice() { return $this->attributes['price']; }
-    public function setPrice($price) { $this->attributes['price'] = $price; }
+    /**
+     * Mối quan hệ: Sản phẩm được tạo bởi một Người dùng (Tác giả) - Lab 10
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
