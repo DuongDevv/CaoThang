@@ -1,4 +1,4 @@
-{{-- 0306241102_NguyenQuocDuong --}}
+
 <!doctype html>
 <html lang="vi">
 <head>
@@ -23,7 +23,7 @@
                     <a class="nav-link active" href="{{ route('products.index') }}">Products</a>
                 </div>
                 <div class="navbar-nav ms-auto align-items-center">
-                    {{-- Logic hiển thị Navigation Bar theo yêu cầu 3 Lab 10 - 0306241102_NguyenQuocDuong --}}
+                    {{-- Logic hiển thị Navigation Bar theo yêu cầu 3 Lab 10  --}}
                     @auth
                         {{-- Nếu ĐÃ ĐĂNG NHẬP --}}
                         <a class="nav-link text-warning fw-bold me-2" href="{{ route('products.create') }}">+ Thêm Sản Phẩm</a>

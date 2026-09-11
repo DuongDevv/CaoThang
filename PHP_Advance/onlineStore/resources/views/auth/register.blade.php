@@ -1,4 +1,4 @@
-{{-- 0306241102_NguyenQuocDuong --}}
+
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
@@ -17,7 +17,7 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Phone Number - 0306241102_NguyenQuocDuong -->
+        <!-- Phone Number  -->
         <div class="mt-4">
             <x-input-label for="phone_number" :value="__('Số điện thoại')" />
             <x-text-input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number" :value="old('phone_number')" required autocomplete="tel" placeholder="0901234567" />

@@ -1,10 +1,10 @@
-{{-- 0306241102_NguyenQuocDuong --}}
+
 @extends('layouts.app')
-@section('title', 'Products - Online Store - 0306241102_NguyenQuocDuong')
+@section('title', 'Products - Online Store ')
 @section('subtitle', 'Quản Lý Danh Sách Sản Phẩm (Tích Hợp Bảo Mật Auth Middleware)')
 
 @section('content')
-{{-- 0306241102_NguyenQuocDuong --}}
+
 <div class="card shadow-sm border-0">
     <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
         <h5 class="mb-0 fw-bold text-primary">Danh Sách Sản Phẩm</h5>

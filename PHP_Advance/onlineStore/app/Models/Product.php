@@ -1,6 +1,6 @@
 <?php
 
-// 0306241102_NguyenQuocDuong
+
 
 namespace App\Models;
 
@@ -13,7 +13,7 @@ class Product extends Model
 {
     use HasFactory, SoftDeletes;
 
-    // Danh sách các cột được phép gán dữ liệu hàng loạt - 0306241102_NguyenQuocDuong
+    // Danh sách các cột được phép gán dữ liệu hàng loạt 
     protected $fillable = [
         'category_id',
         'user_id', // Tự động lưu ID của người dùng tạo sản phẩm (Lab 10)

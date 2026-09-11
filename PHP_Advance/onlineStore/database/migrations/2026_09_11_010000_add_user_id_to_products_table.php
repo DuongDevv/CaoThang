@@ -1,6 +1,6 @@
 <?php
 
-// 0306241102_NguyenQuocDuong
+
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            // Thêm cột user_id (Tác giả người tạo sản phẩm) - 0306241102_NguyenQuocDuong
+            // Thêm cột user_id (Tác giả người tạo sản phẩm) 
             $table->foreignId('user_id')->nullable()->after('category_id')->constrained()->cascadeOnDelete();
         });
     }

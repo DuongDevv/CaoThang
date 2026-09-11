@@ -1,6 +1,6 @@
 <?php
 
-// 0306241102_NguyenQuocDuong
+
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;

@@ -1,6 +1,6 @@
 <?php
 
-// 0306241102_NguyenQuocDuong
+
 
 namespace App\Models;
 
@@ -23,7 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'phone_number', // Thêm trường số điện thoại vào fillable - 0306241102_NguyenQuocDuong
+        'phone_number', // Thêm trường số điện thoại vào fillable 
     ];
 
     /**

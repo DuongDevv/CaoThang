@@ -1,6 +1,6 @@
 <?php
 
-// 0306241102_NguyenQuocDuong
+
 
 namespace App\Http\Controllers\Auth;
 
@@ -32,7 +32,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        // 1. Bổ sung luật validate cho phone_number - 0306241102_NguyenQuocDuong
+        // 1. Bổ sung luật validate cho phone_number 
         $request->validate([
             'name'         => ['required', 'string', 'max:255'],
             'email'        => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'password'     => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        // 2. Thêm dữ liệu phone_number vào hàm tạo User - 0306241102_NguyenQuocDuong
+        // 2. Thêm dữ liệu phone_number vào hàm tạo User 
         $user = User::create([
             'name'         => $request->name,
             'email'        => $request->email,

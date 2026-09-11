@@ -1,6 +1,6 @@
 <?php
 
-// 0306241102_NguyenQuocDuong
+
 
 namespace App\Http\Controllers;
 
@@ -37,7 +37,7 @@ class ProductController extends Controller
         // 1. Lấy mảng dữ liệu đã validate từ StoreProductRequest
         $data = $request->validated();
 
-        // 2. Tự động gán ID của người dùng đang đăng nhập hiện tại - 0306241102_NguyenQuocDuong
+        // 2. Tự động gán ID của người dùng đang đăng nhập hiện tại 
         $data['user_id'] = auth()->id();
 
         // 3. Tạo mới sản phẩm trong CSDL MySQL
