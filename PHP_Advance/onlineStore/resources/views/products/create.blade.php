@@ -1,46 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Thêm sản phẩm mới</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="container mt-5" style="max-width: 600px;">
-    <h2>Thêm sản phẩm mới</h2>
-    <a href="{{ route('products.index') }}" class="btn btn-secondary mb-3">Quay lại danh sách</a>
+@extends('layouts.app')
+@section('title', 'Thêm Sản Phẩm Mới - Online Store')
+@section('subtitle', 'Nhập Thông Tin Sản Phẩm Mới')
 
-    <form action="{{ route('products.store') }}" method="POST">
-        @csrf
-        <div class="mb-3">
-            <label class="form-label">Tên sản phẩm</label>
-            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
-            @error('name')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+@section('content')
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 fw-bold text-success">Thêm Sản Phẩm Mới</h5>
+                <a href="{{ route('products.index') }}" class="btn btn-outline-secondary btn-sm">Quay Lại</a>
+            </div>
+            <div class="card-body p-4">
+                <form action="{{ route('products.store') }}" method="POST">
+                    @csrf
+
+                    {{-- Chọn Danh Mục Sản Phẩm (BẮT BUỘC để tránh lỗi 1364 category_id) --}}
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Danh Mục Sản Phẩm <span class="text-danger">*</span></label>
+                        <select name="category_id" class="form-select @error('category_id') is-invalid @enderror">
+                            <option value="">-- Chọn Danh Mục --</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('category_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Tên Sản Phẩm --}}
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Tên Sản Phẩm <span class="text-danger">*</span></label>
+                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Nhập tên sản phẩm...">
+                        @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Giá Bán --}}
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Giá Bán (VNĐ) <span class="text-danger">*</span></label>
+                        <input type="number" step="0.01" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}" placeholder="Ví dụ: 150000">
+                        @error('price')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Tồn Kho --}}
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Số Lượng Tồn Kho <span class="text-danger">*</span></label>
+                        <input type="number" name="stock_quantity" class="form-control @error('stock_quantity') is-invalid @enderror" value="{{ old('stock_quantity') }}" placeholder="Ví dụ: 50">
+                        @error('stock_quantity')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Mô Tả --}}
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Mô Tả Sản Phẩm</label>
+                        <textarea name="description" class="form-control" rows="3" placeholder="Nhập mô tả sản phẩm...">{{ old('description') }}</textarea>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success py-2 fw-bold">Lưu Sản Phẩm</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="mb-3">
-            <label class="form-label">Giá bán (VNĐ)</label>
-            <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
-            @error('price')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Số lượng tồn kho</label>
-            <input type="number" name="stock_quantity" class="form-control @error('stock_quantity') is-invalid @enderror" value="{{ old('stock_quantity') }}">
-            @error('stock_quantity')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Mô tả sản phẩm</label>
-            <textarea name="description" class="form-control" rows="3">{{ old('description') }}</textarea>
-        </div>
-
-        <button type="submit" class="btn btn-success">Lưu sản phẩm</button>
-    </form>
-</body>
-</html>
+    </div>
+</div>
+@endsection

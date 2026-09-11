@@ -1,17 +1,20 @@
 <?php
 
-
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 
-// 1. Nhóm Route công khai (Public) - Khách vãng lai chưa đăng nhập vẫn xem được (Yêu cầu 2 Lab 10)
+// 1. Nhóm Route công khai (Public)
 Route::get('/', [HomeController::class, 'index'])->name("home.index");
 Route::get('/about', [HomeController::class, 'about'])->name("home.about");
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
-// 2. Nhóm Route bảo mật (Protected Middleware Auth) - Bắt buộc ĐĂNG NHẬP mới được Thêm / Sửa / Xóa
+// Chuyển hướng an toàn nếu trình duyệt mở nhầm URL /books cũ
+Route::get('/books', function () {
+    return redirect()->route('products.index');
+});
+
+// 2. Nhóm Route bảo mật (Protected Middleware Auth)
 Route::middleware('auth')->group(function () {
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('/create', [ProductController::class, 'create'])->name('create');
@@ -27,5 +30,4 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 
-// Giữ nguyên các route authentication của Laravel Breeze
 require __DIR__.'/auth.php';
