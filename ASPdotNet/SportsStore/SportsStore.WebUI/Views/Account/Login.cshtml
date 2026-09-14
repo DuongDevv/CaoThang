@@ -1,0 +1,32 @@
+@model SportsStore.WebUI.Models.LoginViewModel
+@{
+    ViewBag.Title = "Đăng nhập Admin";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Đăng Nhập Quản Trị</h4>
+            </div>
+            <div class="card-body">
+                <div class="text-danger" asp-validation-summary="All"></div>
+                <form asp-action="Login" asp-controller="Account" method="post">
+                    <input type="hidden" asp-for="ReturnUrl" />
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">Tên đăng nhập</label>
+                        <input asp-for="Name" class="form-control" placeholder="Tên đăng nhập..." />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">Mật khẩu</label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Mật khẩu..." />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <button class="btn btn-primary w-100" type="submit">Đăng Nhập</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

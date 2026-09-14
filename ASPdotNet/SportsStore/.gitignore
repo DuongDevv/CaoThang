@@ -1,0 +1,21 @@
+## Visual Studio & .NET Core Ignore Rules
+[Bb]in/
+[Oo]bj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Database & Local Files
+*.db
+*.db-shm
+*.db-wal
+appsettings.Production.json
+appsettings.Development.json
+*.env
+
+## Uploaded Files (Static Assets in wwwroot)
+SportsStore.WebUI/wwwroot/images/uploads/*
+!SportsStore.WebUI/wwwroot/images/uploads/.gitkeep

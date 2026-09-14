@@ -12,7 +12,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 // Chuyển hướng an toàn nếu trình duyệt mở nhầm URL /books cũ
 Route::get('/books', function () {
     return redirect()->route('products.index');
-});
+});Complete OnlineStore Labs 1-10 with Authentication & Middleware
 
 // 2. Nhóm Route bảo mật (Protected Middleware Auth)
 Route::middleware('auth')->group(function () {

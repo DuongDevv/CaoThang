@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  webui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sportsstore_webui
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__SportsStoreConnection=Data Source=/app/data/sportsstore.db
+      - Jwt__SecretKey=SuperSecretKeyForJWTAuthentication1234567890!@#$
+      - Jwt__Issuer=SportsStoreAPI
+      - Jwt__Audience=SportsStoreClients
+    volumes:
+      - sportsstore_data:/app/data
+      - sportsstore_images:/app/wwwroot/images/uploads
+    networks:
+      - sportsstore_net
+    restart: always
+
+  redis:
+    image: redis:7-alpine
+    container_name: sportsstore_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - sportsstore_net
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    container_name: sportsstore_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - webui
+    networks:
+      - sportsstore_net
+    restart: always
+
+volumes:
+  sportsstore_data:
+  sportsstore_images:
+
+networks:
+  sportsstore_net:
+    driver: bridge

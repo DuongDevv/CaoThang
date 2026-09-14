@@ -1,5 +1,7 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SportsStore.Domain;
@@ -12,9 +14,10 @@ namespace SportsStore.Infrastructure
         {
             using (var scope = services.CreateScope())
             {
-                SportsStoreDbContext context = scope.ServiceProvider.GetRequiredService<SportsStoreDbContext>();
+                var provider = scope.ServiceProvider;
+                SportsStoreDbContext context = provider.GetRequiredService<SportsStoreDbContext>();
 
-                context.Database.EnsureCreated();
+                context.Database.Migrate();
 
                 if (!context.Categories.Any())
                 {
@@ -34,6 +37,41 @@ namespace SportsStore.Infrastructure
                         new Product { ProductID = 4, Name = "Giày B", Price = 1200000, CategoryId = 2, ImageUrl = "/images/toji.jpg", Description = "Mô tả sản phẩm Giày B" }
                     );
                     context.SaveChanges();
+                }
+
+                // Seed Identity Roles and Admin User (Bài 10)
+                SeedIdentityAsync(provider).GetAwaiter().GetResult();
+            }
+        }
+
+        private static async Task SeedIdentityAsync(IServiceProvider provider)
+        {
+            var roleManager = provider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = provider.GetRequiredService<UserManager<IdentityUser>>();
+
+            string[] roles = new[] { "Admin", "Customer" };
+            foreach (var role in roles)
+            {
+                if (!await roleManager.RoleExistsAsync(role))
+                {
+                    await roleManager.CreateAsync(new IdentityRole(role));
+                }
+            }
+
+            string adminEmail = "admin@sportsstore.com";
+            var adminUser = await userManager.FindByEmailAsync(adminEmail);
+            if (adminUser == null)
+            {
+                adminUser = new IdentityUser
+                {
+                    UserName = "admin",
+                    Email = adminEmail,
+                    EmailConfirmed = true
+                };
+                var result = await userManager.CreateAsync(adminUser, "Admin@123");
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(adminUser, "Admin");
                 }
             }
         }

@@ -1,14 +1,17 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SportsStore.Domain;
 using SportsStore.WebUI.Models;
 
 namespace SportsStore.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly IProductRepository _repository;
@@ -34,44 +37,46 @@ namespace SportsStore.WebUI.Controllers
             {
                 ProductID = product?.ProductID ?? 0,
                 Name = product?.Name ?? string.Empty,
-                Description = product?.Description ?? string.Empty,
+                Description = product?.Description,
                 Price = product?.Price ?? 0,
-                Category = product?.CategoryId.ToString() ?? string.Empty,
-                ImageUrl = product?.ImageUrl
+                CategoryId = product?.CategoryId ?? 0,
+                ImageUrl = product?.ImageUrl,
+                Categories = _repository.Categories
+                    .Select(c => new SelectListItem { Value = c.CategoryId.ToString(), Text = c.Name })
+                    .ToList()
             };
 
             return View(viewModel);
         }
 
-        public IActionResult Create() => View("Edit", new ProductEditViewModel());
+        public IActionResult Create() => View("Edit", new ProductEditViewModel
+        {
+            Categories = _repository.Categories
+                .Select(c => new SelectListItem { Value = c.CategoryId.ToString(), Text = c.Name })
+                .ToList()
+        });
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Save(ProductEditViewModel viewModel, IFormFile? imageFile)
         {
-            if (imageFile != null && imageFile.Length > 0)
-            {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "images");
-                if (!Directory.Exists(uploadsFolder))
-                {
-                    Directory.CreateDirectory(uploadsFolder);
-                }
-
-                var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(imageFile.FileName);
-                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    await imageFile.CopyToAsync(fileStream);
-                }
-
-                viewModel.ImageUrl = "/images/" + uniqueFileName;
-            }
-
             if (ModelState.IsValid)
             {
-                int catId = 1;
-                int.TryParse(viewModel.Category, out catId);
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    string uploadsFolder = Path.Combine(_environment.WebRootPath, "images");
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(fileStream);
+                    }
+                    viewModel.ImageUrl = "/images/" + uniqueFileName;
+                }
 
                 Product product = new Product
                 {
@@ -79,15 +84,18 @@ namespace SportsStore.WebUI.Controllers
                     Name = viewModel.Name,
                     Description = viewModel.Description,
                     Price = viewModel.Price,
-                    CategoryId = catId == 0 ? 1 : catId,
+                    CategoryId = viewModel.CategoryId,
                     ImageUrl = viewModel.ImageUrl
                 };
 
                 _repository.SaveProduct(product);
-                TempData["message"] = $"Đã lưu sản phẩm {product.Name}!";
+                TempData["message"] = $"Đã lưu sản phẩm {product.Name} thành công!";
                 return RedirectToAction(nameof(Index));
             }
 
+            viewModel.Categories = _repository.Categories
+                .Select(c => new SelectListItem { Value = c.CategoryId.ToString(), Text = c.Name })
+                .ToList();
             return View("Edit", viewModel);
         }
 
@@ -98,7 +106,7 @@ namespace SportsStore.WebUI.Controllers
             Product? deletedProduct = _repository.DeleteProduct(productId);
             if (deletedProduct != null)
             {
-                TempData["message"] = $"Đã xóa sản phẩm {deletedProduct.Name}!";
+                TempData["message"] = $"Sản phẩm {deletedProduct.Name} đã bị xóa!";
             }
             return RedirectToAction(nameof(Index));
         }

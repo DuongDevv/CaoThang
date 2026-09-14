@@ -32,9 +32,11 @@
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label asp-for="Category" class="form-label fw-bold"></label>
-                    <input asp-for="Category" class="form-control" placeholder="Ví dụ: Soccer, Watersports..." />
-                    <span asp-validation-for="Category" class="text-danger"></span>
+                    <label asp-for="CategoryId" class="form-label fw-bold"></label>
+                    <select asp-for="CategoryId" asp-items="Model.Categories" class="form-select">
+                        <option value="">-- Chọn Danh Mục --</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
             </div>
 
